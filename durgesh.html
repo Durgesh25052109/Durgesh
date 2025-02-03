@@ -1,12 +1,63 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <html lang="en">
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>durgesh</title>
+    <title>Personalized Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+    <script>
+        function welcomeUser() {
+            // Get the name entered by the user
+            let userName = document.getElementById("nameInput").value;
+
+            // Check if the user entered a name
+            if (userName.trim() === "") {
+                alert("Please enter your name.");
+                return;
+            }
+
+            // Store the name in local storage (so it stays after refresh)
+            localStorage.setItem("userName", userName);
+
+            // Display the personalized welcome message
+            document.getElementById("welcomeMessage").innerHTML = "Welcome, " + userName + "!";
+        }
+
+        // Function to check if a name is already stored
+        function checkStoredName() {
+            let storedName = localStorage.getItem("userName");
+            if (storedName) {
+                document.getElementById("welcomeMessage").innerHTML = "Welcome back, " + storedName + "!";
+            }
+        }
+
+        // Run this function when the page loads
+        window.onload = checkStoredName;
+    </script>
 </head>
 <body>
-    <h1>Durgesh</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque iusto dolorem minus! Quae aliquam dolor dolore illum ut dignissimos libero esse sapiente vel est iusto, autem reprehenderit repellat commodi quia!</p>
+
+    <h1 id="welcomeMessage">Enter your name to get a personalized welcome!</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="welcomeUser()">Submit</button>
+
 </body>
-</html> -->
+</html>

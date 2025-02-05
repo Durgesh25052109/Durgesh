@@ -3,61 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalized Welcome</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
-    <script>
-        function welcomeUser() {
-            // Get the name entered by the user
-            let userName = document.getElementById("nameInput").value;
-
-            // Check if the user entered a name
-            if (userName.trim() === "") {
-                alert("Please enter your name.");
-                return;
-            }
-
-            // Store the name in local storage (so it stays after refresh)
-            localStorage.setItem("userName", userName);
-
-            // Display the personalized welcome message
-            document.getElementById("welcomeMessage").innerHTML = "Welcome, " + userName + "!";
-        }
-
-        // Function to check if a name is already stored
-        function checkStoredName() {
-            let storedName = localStorage.getItem("userName");
-            if (storedName) {
-                document.getElementById("welcomeMessage").innerHTML = "Welcome back, " + storedName + "!";
-            }
-        }
-
-        // Run this function when the page loads
-        window.onload = checkStoredName;
-    </script>
+    <title>Smoke Heart Animation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1 id="welcomeMessage">Enter your name to get a personalized welcome!</h1>
-    <input type="text" id="nameInput" placeholder="Enter your name">
-    <button onclick="welcomeUser()">Submit</button>
-
+    <div class="container">
+        <svg class="heart-outline" viewBox="0 0 200 200">
+            <path d="M100 180 C -50 80 50 -20 100 50 C 150 -20 250 80 100 180" />
+        </svg>
+        <svg viewBox="0 0 200 200" width="200" height="200">
+            <g class="heart-outline" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Outer Heart -->
+              <path d="M100,30 C130,-10 200,40 100,150 C0,40 70,-10 100,30" stroke="red"/>
+          
+              <!-- Medium Heart -->
+              <path d="M100,40 C125,0 190,50 100,140 C10,50 75,0 100,40" stroke="pink"/>
+          
+              <!-- Smaller Heart -->
+              <path d="M100,50 C120,10 180,60 100,130 C20,60 80,10 100,50" stroke="lightpink"/>
+          
+              <!-- Smallest Heart -->
+              <path d="M100,60 C115,20 170,70 100,120 C30,70 85,20 100,60" stroke="white"/>
+            </g>
+          </svg>
+          <svg viewBox="0 0 200 200" width="200" height="200">
+            <g transform="translate(100,100)"> <!-- Move hearts to center -->
+              <!-- Outer Heart -->
+              <path d="M0,-40 C35,-80 100,-50 0,60 C-100,-50 -35,-80 0,-40" 
+                    stroke="red" stroke-width="3" fill="none"/>
+              
+              <!-- Medium Heart -->
+              <path d="M0,-36 C31,-72 90,-45 0,54 C-90,-45 -31,-72 0,-36" 
+                    stroke="pink" stroke-width="2.5" fill="none"/>
+              
+              <!-- Small Heart -->
+              <path d="M0,-32 C28,-64 80,-40 0,48 C-80,-40 -28,-64 0,-32" 
+                    stroke="lightpink" stroke-width="2" fill="none"/>
+              
+              <!-- Smallest Heart -->
+              <path d="M0,-28 C24,-56 70,-35 0,42 C-70,-35 -24,-56 0,-28" 
+                    stroke="white" stroke-width="1.5" fill="none"/>
+            </g>
+          </svg>
+          
+          
+          
+          
+        <div class="smoke-container"></div>
+        <div class="message">Be My Valentine ❤️</div>
+    </div>
+    <script src="somke heart.js"></script>
 </body>
 </html>
